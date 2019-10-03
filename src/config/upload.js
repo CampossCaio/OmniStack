@@ -1,6 +1,7 @@
 const multer = require('multer');
 const path =  require('path');
 
+//exportando um moodulo para fazer upload.
 module.exports = {
     storage: multer.diskStorage({
         destination: path.resolve(__dirname, '..','..', 'uploads'),
