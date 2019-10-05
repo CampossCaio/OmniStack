@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes =  require('./routes');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 
                                //usuári0 : senha                          //nome da base de dados
@@ -22,6 +23,8 @@ mongoose.connect('mongodb://omnistack:omnistack@cluster0-shard-00-00-8jkd4.mongo
 //cors controla quais urls poderão requisitar nossa api
 app.use(cors());
 app.use(express.json());
+
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes);
 
 app.listen(8081);
